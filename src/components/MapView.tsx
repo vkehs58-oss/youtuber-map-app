@@ -64,18 +64,28 @@ export default function MapView({ allRestaurants, restaurants, youtubers, select
 
     list.forEach(r => {
       const yt = youtubers.find(y => y.name === r.youtuber)
+      const color = yt?.color || '#3182f6'
       const content = document.createElement('div')
+      content.style.cssText = 'position:relative;cursor:pointer'
       content.innerHTML = `
-        <div style="background:${yt?.color || '#3182f6'};color:white;padding:6px 10px;border-radius:20px;font-size:12px;font-weight:700;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,0.15);cursor:pointer;display:flex;align-items:center;gap:4px">
-          <span>${yt?.emoji || '📍'}</span><span>${r.name}</span>
+        <div style="width:14px;height:14px;background:${color};border:2.5px solid white;border-radius:50%;box-shadow:0 1px 4px rgba(0,0,0,0.25)"></div>
+        <div class="marker-label" style="display:none;position:absolute;bottom:20px;left:50%;transform:translateX(-50%);background:${color};color:white;padding:5px 10px;border-radius:12px;font-size:12px;font-weight:700;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,0.15)">
+          ${r.name}
         </div>`
       const overlay = new window.kakao.maps.CustomOverlay({
         position: new window.kakao.maps.LatLng(r.lat, r.lng),
-        content, yAnchor: 1.3,
+        content, yAnchor: 0.5,
       })
       overlay.setMap(mapInstance.current)
       markers.current.push(overlay)
-      content.onclick = () => onSelectRestaurant(r)
+      content.onclick = (e) => {
+        e.stopPropagation()
+        // 다른 라벨 숨기기
+        document.querySelectorAll('.marker-label').forEach(el => (el as HTMLElement).style.display = 'none')
+        const label = content.querySelector('.marker-label') as HTMLElement
+        label.style.display = 'block'
+        onSelectRestaurant(r)
+      }
     })
 
     if (list.length > 0) {
@@ -124,7 +134,7 @@ export default function MapView({ allRestaurants, restaurants, youtubers, select
         const nearby = allRestaurants
           .map(r => ({ ...r, distance: getDistance(lat, lng, r.lat, r.lng) }))
           .sort((a, b) => a.distance - b.distance)
-          .slice(0, 20)
+          .slice(0, 10)
         setNearbyList(nearby)
         addMarkers(nearby)
       },
@@ -190,7 +200,7 @@ export default function MapView({ allRestaurants, restaurants, youtubers, select
 
       {/* 내 주변 바텀시트 */}
       {nearbyMode && nearbyList.length > 0 && (
-        <div className="absolute bottom-0 left-0 right-0 bg-white rounded-t-2xl shadow-[0_-4px_20px_rgba(0,0,0,0.1)] max-h-[40vh] overflow-y-auto z-10">
+        <div className="absolute bottom-0 left-0 right-0 bg-white rounded-t-2xl shadow-[0_-4px_20px_rgba(0,0,0,0.1)] max-h-[35vh] overflow-y-auto z-10">
           <div className="sticky top-0 bg-white pt-3 pb-2 px-4 border-b border-toss-gray-100">
             <div className="w-10 h-1 bg-toss-gray-200 rounded-full mx-auto mb-2" />
             <div className="text-[14px] font-bold text-toss-gray-800">📍 내 주변 맛집 {nearbyList.length}곳</div>
