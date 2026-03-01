@@ -21,7 +21,9 @@ function App() {
     if (!q) return appData.restaurants
     return appData.restaurants.filter(r =>
       r.name.toLowerCase().includes(q) ||
+      r.youtuber.toLowerCase().includes(q) ||
       r.location.toLowerCase().includes(q) ||
+      r.address.toLowerCase().includes(q) ||
       r.menu.toLowerCase().includes(q) ||
       r.cuisine.includes(q) ||
       r.tags.some(t => t.includes(q))
@@ -31,7 +33,7 @@ function App() {
   // 대분류: 유튜버별 그룹
   const grouped = useMemo(() => {
     return appData.youtubers.map(yt => {
-      const restaurants = filtered.filter(r => r.youtuber === yt.id)
+      const restaurants = filtered.filter(r => r.youtuber === yt.name)
       // 중분류: 음식 종류별 그룹
       const cuisineMap = new Map<string, Restaurant[]>()
       restaurants.forEach(r => {
@@ -126,7 +128,7 @@ function App() {
         {selectedRestaurant && (
           <RestaurantDetail
             restaurant={selectedRestaurant}
-            youtuber={appData.youtubers.find(y => y.id === selectedRestaurant.youtuber)!}
+            youtuber={appData.youtubers.find(y => y.name === selectedRestaurant.youtuber)!}
             onClose={() => setSelectedRestaurant(null)}
           />
         )}

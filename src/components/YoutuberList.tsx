@@ -11,7 +11,7 @@ export default function YoutuberList({ youtubers, restaurants, selected, onSelec
   return (
     <div className="flex gap-2 overflow-x-auto hide-scroll pb-1">
       {youtubers.map(y => {
-        const count = restaurants.filter(r => r.youtuber === y.id).length
+        const count = restaurants.filter(r => r.youtuber === y.name).length
         const isActive = selected === y.id
 
         return (

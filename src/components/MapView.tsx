@@ -57,7 +57,7 @@ export default function MapView({ restaurants, youtubers, selectedYoutuber, onSe
     markers.current = []
 
     restaurants.forEach(r => {
-      const yt = youtubers.find(y => y.id === r.youtuber)
+      const yt = youtubers.find(y => y.name === r.youtuber)
       const position = new window.kakao.maps.LatLng(r.lat, r.lng)
 
       // 커스텀 마커

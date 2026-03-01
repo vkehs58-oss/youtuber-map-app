@@ -10,7 +10,7 @@ export default function RestaurantList({ restaurants, youtubers, onSelect }: Pro
   return (
     <div className="flex flex-col gap-2.5">
       {restaurants.map(r => {
-        const yt = youtubers.find(y => y.id === r.youtuber)
+        const yt = youtubers.find(y => y.name === r.youtuber)
         return (
           <button
             key={r.id}
