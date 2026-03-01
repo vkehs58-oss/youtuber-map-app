@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useCallback } from 'react'
 import type { Restaurant, Youtuber } from '../types'
 
 declare global {
@@ -7,7 +7,16 @@ declare global {
   }
 }
 
+function getDistance(lat1: number, lng1: number, lat2: number, lng2: number) {
+  const R = 6371
+  const dLat = (lat2 - lat1) * Math.PI / 180
+  const dLng = (lng2 - lng1) * Math.PI / 180
+  const a = Math.sin(dLat/2)**2 + Math.cos(lat1*Math.PI/180) * Math.cos(lat2*Math.PI/180) * Math.sin(dLng/2)**2
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a))
+}
+
 interface Props {
+  allRestaurants: Restaurant[]
   restaurants: Restaurant[]
   youtubers: Youtuber[]
   selectedYoutuber: string | null
@@ -15,108 +24,139 @@ interface Props {
   onSelectRestaurant: (r: Restaurant) => void
 }
 
-export default function MapView({ restaurants, youtubers, selectedYoutuber, onSelectYoutuber, onSelectRestaurant }: Props) {
+export default function MapView({ allRestaurants, restaurants, youtubers, selectedYoutuber, onSelectYoutuber, onSelectRestaurant }: Props) {
   const mapRef = useRef<HTMLDivElement>(null)
   const mapInstance = useRef<any>(null)
   const markers = useRef<any[]>([])
+  const myMarker = useRef<any>(null)
   const [loaded, setLoaded] = useState(false)
+  const [nearbyMode, setNearbyMode] = useState(false)
+  const [myPos, setMyPos] = useState<{ lat: number; lng: number } | null>(null)
+  const [geoLoading, setGeoLoading] = useState(false)
+  const [nearbyList, setNearbyList] = useState<(Restaurant & { distance: number })[]>([])
 
   // 카카오맵 SDK 로드
   useEffect(() => {
-    if (window.kakao?.maps) {
-      setLoaded(true)
-      return
-    }
-
+    if (window.kakao?.maps) { setLoaded(true); return }
     const script = document.createElement('script')
     script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=301b016cf5e55960143e982bf2676aac&autoload=false`
-    script.onload = () => {
-      window.kakao.maps.load(() => setLoaded(true))
-    }
+    script.onload = () => { window.kakao.maps.load(() => setLoaded(true)) }
     document.head.appendChild(script)
   }, [])
 
   // 지도 초기화
   useEffect(() => {
     if (!loaded || !mapRef.current) return
-
-    const options = {
+    mapInstance.current = new window.kakao.maps.Map(mapRef.current, {
       center: new window.kakao.maps.LatLng(37.5565, 126.9780),
       level: 8,
-    }
-
-    mapInstance.current = new window.kakao.maps.Map(mapRef.current, options)
+    })
   }, [loaded])
 
-  // 마커 업데이트
-  useEffect(() => {
-    if (!mapInstance.current || !loaded) return
-
-    // 기존 마커 제거
+  const clearMarkers = useCallback(() => {
     markers.current.forEach(m => m.setMap(null))
     markers.current = []
+  }, [])
 
-    restaurants.forEach(r => {
+  const addMarkers = useCallback((list: Restaurant[]) => {
+    if (!mapInstance.current || !loaded) return
+    clearMarkers()
+
+    list.forEach(r => {
       const yt = youtubers.find(y => y.name === r.youtuber)
-      const position = new window.kakao.maps.LatLng(r.lat, r.lng)
-
-      // 커스텀 마커
       const content = document.createElement('div')
       content.innerHTML = `
-        <div style="
-          background: ${yt?.color || '#3182f6'};
-          color: white;
-          padding: 6px 10px;
-          border-radius: 20px;
-          font-size: 12px;
-          font-weight: 700;
-          white-space: nowrap;
-          box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          gap: 4px;
-        ">
-          <span>${yt?.emoji || '📍'}</span>
-          <span>${r.name}</span>
-        </div>
-      `
-
+        <div style="background:${yt?.color || '#3182f6'};color:white;padding:6px 10px;border-radius:20px;font-size:12px;font-weight:700;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,0.15);cursor:pointer;display:flex;align-items:center;gap:4px">
+          <span>${yt?.emoji || '📍'}</span><span>${r.name}</span>
+        </div>`
       const overlay = new window.kakao.maps.CustomOverlay({
-        position,
-        content,
-        yAnchor: 1.3,
+        position: new window.kakao.maps.LatLng(r.lat, r.lng),
+        content, yAnchor: 1.3,
       })
-
       overlay.setMap(mapInstance.current)
       markers.current.push(overlay)
-
       content.onclick = () => onSelectRestaurant(r)
     })
 
-    // 마커가 있으면 바운드 맞추기
-    if (restaurants.length > 0) {
+    if (list.length > 0) {
       const bounds = new window.kakao.maps.LatLngBounds()
-      restaurants.forEach(r => bounds.extend(new window.kakao.maps.LatLng(r.lat, r.lng)))
+      list.forEach(r => bounds.extend(new window.kakao.maps.LatLng(r.lat, r.lng)))
+      if (myPos && nearbyMode) bounds.extend(new window.kakao.maps.LatLng(myPos.lat, myPos.lng))
       mapInstance.current.setBounds(bounds, 80, 80, 80, 80)
     }
-  }, [restaurants, loaded])
+  }, [loaded, youtubers, onSelectRestaurant, clearMarkers, myPos, nearbyMode])
+
+  // 유튜버 필터 마커
+  useEffect(() => {
+    if (nearbyMode) return
+    addMarkers(restaurants)
+  }, [restaurants, nearbyMode, addMarkers])
+
+  // 내 주변 모드
+  const handleNearby = useCallback(() => {
+    if (nearbyMode) {
+      setNearbyMode(false)
+      setNearbyList([])
+      if (myMarker.current) { myMarker.current.setMap(null); myMarker.current = null }
+      addMarkers(restaurants)
+      return
+    }
+
+    setGeoLoading(true)
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        const { latitude: lat, longitude: lng } = pos.coords
+        setMyPos({ lat, lng })
+        setNearbyMode(true)
+        setGeoLoading(false)
+
+        // 내 위치 마커
+        if (myMarker.current) myMarker.current.setMap(null)
+        const el = document.createElement('div')
+        el.innerHTML = `<div style="width:18px;height:18px;background:#3182f6;border:3px solid white;border-radius:50%;box-shadow:0 2px 8px rgba(49,130,246,0.4)"></div>`
+        myMarker.current = new window.kakao.maps.CustomOverlay({
+          position: new window.kakao.maps.LatLng(lat, lng),
+          content: el, yAnchor: 0.5,
+        })
+        myMarker.current.setMap(mapInstance.current)
+
+        // 가까운 맛집 계산
+        const nearby = allRestaurants
+          .map(r => ({ ...r, distance: getDistance(lat, lng, r.lat, r.lng) }))
+          .sort((a, b) => a.distance - b.distance)
+          .slice(0, 20)
+        setNearbyList(nearby)
+        addMarkers(nearby)
+      },
+      () => { setGeoLoading(false); alert('위치 권한을 허용해주세요') },
+      { enableHighAccuracy: true, timeout: 10000 }
+    )
+  }, [nearbyMode, allRestaurants, restaurants, addMarkers])
 
   return (
     <div className="relative">
-      {/* 유튜버 필터 (지도 위 오버레이) */}
+      {/* 상단: 유튜버 필터 + 내 주변 버튼 */}
       <div className="absolute top-3 left-0 right-0 z-10 px-4">
         <div className="flex gap-2 overflow-x-auto hide-scroll pb-1">
-          {youtubers.map(y => {
+          {/* 내 주변 버튼 */}
+          <button
+            onClick={handleNearby}
+            className={`shrink-0 px-3 py-2 rounded-xl flex items-center gap-1.5 text-[12px] font-bold transition-all shadow-md ${
+              nearbyMode ? 'bg-toss-blue text-white' : 'bg-white text-toss-gray-700'
+            }`}
+          >
+            {geoLoading ? <span className="animate-pulse">⏳</span> : <span>📍</span>}
+            <span>내 주변</span>
+          </button>
+
+          {!nearbyMode && youtubers.map(y => {
             const isActive = selectedYoutuber === y.name
             return (
               <button
                 key={y.name}
                 onClick={() => onSelectYoutuber(y.name)}
                 className={`shrink-0 px-3 py-2 rounded-xl flex items-center gap-1.5 text-[12px] font-bold transition-all shadow-md ${
-                  isActive
-                    ? 'text-white'
-                    : 'bg-white text-toss-gray-700'
+                  isActive ? 'text-white' : 'bg-white text-toss-gray-700'
                 }`}
                 style={isActive ? { background: y.color } : {}}
               >
@@ -129,11 +169,7 @@ export default function MapView({ restaurants, youtubers, selectedYoutuber, onSe
       </div>
 
       {/* 지도 */}
-      <div
-        ref={mapRef}
-        className="w-full"
-        style={{ height: 'calc(100vh - 180px)' }}
-      />
+      <div ref={mapRef} className="w-full" style={{ height: 'calc(100vh - 180px)' }} />
 
       {!loaded && (
         <div className="absolute inset-0 flex items-center justify-center bg-toss-gray-100">
@@ -141,13 +177,45 @@ export default function MapView({ restaurants, youtubers, selectedYoutuber, onSe
         </div>
       )}
 
-      {loaded && !selectedYoutuber && (
+      {/* 유튜버 미선택 안내 */}
+      {loaded && !selectedYoutuber && !nearbyMode && (
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ top: '60px' }}>
           <div className="bg-white/90 backdrop-blur-sm rounded-2xl px-6 py-4 shadow-lg text-center">
             <div className="text-[28px] mb-2">👆</div>
             <div className="text-[14px] font-bold text-toss-gray-800">유튜버를 선택해주세요</div>
             <div className="text-[12px] text-toss-gray-500 mt-1">위 칩을 눌러 맛집을 확인하세요</div>
           </div>
+        </div>
+      )}
+
+      {/* 내 주변 바텀시트 */}
+      {nearbyMode && nearbyList.length > 0 && (
+        <div className="absolute bottom-0 left-0 right-0 bg-white rounded-t-2xl shadow-[0_-4px_20px_rgba(0,0,0,0.1)] max-h-[40vh] overflow-y-auto z-10">
+          <div className="sticky top-0 bg-white pt-3 pb-2 px-4 border-b border-toss-gray-100">
+            <div className="w-10 h-1 bg-toss-gray-200 rounded-full mx-auto mb-2" />
+            <div className="text-[14px] font-bold text-toss-gray-800">📍 내 주변 맛집 {nearbyList.length}곳</div>
+          </div>
+          {nearbyList.map(r => {
+            const yt = youtubers.find(y => y.name === r.youtuber)
+            const distStr = r.distance < 1 ? `${Math.round(r.distance * 1000)}m` : `${r.distance.toFixed(1)}km`
+            return (
+              <button
+                key={r.id}
+                onClick={() => onSelectRestaurant(r)}
+                className="w-full px-4 py-3 flex items-center gap-3 active:bg-toss-gray-50 border-b border-toss-gray-50 text-left"
+              >
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center text-[18px] shrink-0"
+                  style={{ background: `${yt?.color || '#3182f6'}15` }}>
+                  {yt?.emoji || '📍'}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-[14px] font-bold text-toss-gray-900 truncate">{r.name}</div>
+                  <div className="text-[11px] text-toss-gray-500 mt-0.5 truncate">{r.cuisine} · {yt?.name}</div>
+                </div>
+                <div className="text-[13px] font-extrabold text-toss-blue shrink-0">{distStr}</div>
+              </button>
+            )
+          })}
         </div>
       )}
     </div>

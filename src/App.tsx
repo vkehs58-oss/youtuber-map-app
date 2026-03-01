@@ -1,19 +1,11 @@
-import { useState, useMemo, useCallback } from 'react'
+import { useState, useMemo } from 'react'
 import data from './data/restaurants.json'
 import type { AppData, Restaurant } from './types'
 import RestaurantDetail from './components/RestaurantDetail'
 import MapView from './components/MapView'
 
 const appData = data as AppData
-type Tab = 'home' | 'nearby' | 'map'
-
-function getDistance(lat1: number, lng1: number, lat2: number, lng2: number) {
-  const R = 6371
-  const dLat = (lat2 - lat1) * Math.PI / 180
-  const dLng = (lng2 - lng1) * Math.PI / 180
-  const a = Math.sin(dLat/2)**2 + Math.cos(lat1*Math.PI/180) * Math.cos(lat2*Math.PI/180) * Math.sin(dLng/2)**2
-  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a))
-}
+type Tab = 'home' | 'map'
 
 function App() {
   const [tab, setTab] = useState<Tab>('home')
@@ -22,27 +14,6 @@ function App() {
   const [expandedCuisine, setExpandedCuisine] = useState<string | null>(null)
   const [search, setSearch] = useState('')
   const [mapYoutuber, setMapYoutuber] = useState<string | null>(null)
-  const [myPos, setMyPos] = useState<{ lat: number; lng: number } | null>(null)
-  const [geoLoading, setGeoLoading] = useState(false)
-  const [geoError, setGeoError] = useState('')
-
-  const requestLocation = useCallback(() => {
-    setGeoLoading(true)
-    setGeoError('')
-    navigator.geolocation.getCurrentPosition(
-      (pos) => { setMyPos({ lat: pos.coords.latitude, lng: pos.coords.longitude }); setGeoLoading(false) },
-      () => { setGeoError('위치 권한을 허용해주세요'); setGeoLoading(false) },
-      { enableHighAccuracy: true, timeout: 10000 }
-    )
-  }, [])
-
-  const nearbyList = useMemo(() => {
-    if (!myPos) return []
-    return appData.restaurants
-      .map(r => ({ ...r, distance: getDistance(myPos.lat, myPos.lng, r.lat, r.lng) }))
-      .sort((a, b) => a.distance - b.distance)
-      .slice(0, 30)
-  }, [myPos])
 
   const q = search.trim().toLowerCase()
 
@@ -110,11 +81,11 @@ function App() {
           {/* 탭 */}
           <div className="px-5 pb-3">
             <div className="flex bg-toss-gray-100 rounded-xl p-1">
-              {([['home', '🏠 목록'], ['nearby', '📍 내 주변'], ['map', '🗺️ 지도']] as const).map(([key, label]) => (
+              {([['home', '🏠 맛집 목록'], ['map', '🗺️ 지도 보기']] as const).map(([key, label]) => (
                 <button
                   key={key}
-                  onClick={() => { setTab(key as Tab); if (key === 'nearby' && !myPos && !geoLoading) requestLocation() }}
-                  className={`flex-1 py-2.5 rounded-lg text-[13px] font-bold transition-all flex items-center justify-center gap-1 ${
+                  onClick={() => setTab(key as Tab)}
+                  className={`flex-1 py-2.5 rounded-lg text-[14px] font-bold transition-all flex items-center justify-center gap-1.5 ${
                     tab === key ? 'bg-white text-toss-blue shadow-sm' : 'text-toss-gray-500'
                   }`}
                 >
@@ -158,53 +129,9 @@ function App() {
           />
         )}
 
-        {tab === 'nearby' ? (
-          <div className="px-4 pt-4 pb-8 flex flex-col gap-3">
-            {geoLoading && (
-              <div className="flex flex-col items-center pt-16">
-                <div className="w-16 h-16 rounded-full bg-toss-blue/10 flex items-center justify-center text-[28px] mb-4 animate-pulse">📍</div>
-                <div className="text-[15px] font-bold text-toss-gray-800">위치를 찾고 있어요...</div>
-              </div>
-            )}
-            {geoError && (
-              <div className="flex flex-col items-center pt-16">
-                <div className="w-16 h-16 rounded-full bg-red-50 flex items-center justify-center text-[28px] mb-4">⚠️</div>
-                <div className="text-[15px] font-bold text-toss-gray-800 mb-2">{geoError}</div>
-                <button onClick={requestLocation} className="text-[13px] text-toss-blue font-bold">다시 시도</button>
-              </div>
-            )}
-            {!geoLoading && !geoError && nearbyList.length > 0 && (
-              <>
-                <div className="text-[13px] text-toss-gray-500 px-1">가까운 맛집 {nearbyList.length}곳</div>
-                {nearbyList.map(r => {
-                  const yt = appData.youtubers.find(y => y.name === r.youtuber)
-                  const distStr = r.distance < 1 ? `${Math.round(r.distance * 1000)}m` : `${r.distance.toFixed(1)}km`
-                  return (
-                    <button
-                      key={r.id}
-                      onClick={() => setSelectedRestaurant(r)}
-                      className="bg-white rounded-2xl shadow-sm px-4 py-3.5 flex items-center gap-3 active:bg-toss-gray-50 transition-colors text-left"
-                    >
-                      <div className="w-11 h-11 rounded-2xl flex items-center justify-center text-[20px] shrink-0"
-                        style={{ background: `${yt?.color || '#3182f6'}15` }}>
-                        {yt?.emoji || '📍'}
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="text-[15px] font-bold text-toss-gray-900 truncate">{r.name}</div>
-                        <div className="text-[12px] text-toss-gray-500 mt-0.5 truncate">{r.cuisine} · {r.address || r.location}</div>
-                      </div>
-                      <div className="shrink-0 text-right">
-                        <div className="text-[14px] font-extrabold text-toss-blue">{distStr}</div>
-                        <div className="text-[11px] text-toss-gray-400">{yt?.name}</div>
-                      </div>
-                    </button>
-                  )
-                })}
-              </>
-            )}
-          </div>
-        ) : tab === 'map' ? (
+        {tab === 'map' ? (
           <MapView
+            allRestaurants={appData.restaurants}
             restaurants={mapYoutuber ? filtered.filter(r => r.youtuber === mapYoutuber) : []}
             youtubers={appData.youtubers}
             selectedYoutuber={mapYoutuber}
