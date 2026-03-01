@@ -9,28 +9,52 @@
       "subscribers": "2,400만"
     },
     {
-      "id": "baekjongwon",
-      "name": "백종원",
-      "emoji": "👨‍🍳",
-      "color": "#4ECDC4",
-      "description": "골목식당·요리 전문가",
-      "subscribers": "700만"
+      "id": "sungsikyung",
+      "name": "성시경",
+      "emoji": "🎤",
+      "color": "#4A90D9",
+      "description": "먹보 가수 유튜버",
+      "subscribers": "400만"
+    },
+    {
+      "id": "pungja",
+      "name": "풍자(수제)",
+      "emoji": "🔪",
+      "color": "#E74C3C",
+      "description": "또간집 맛집 전문",
+      "subscribers": "300만"
     },
     {
       "id": "mukboss",
-      "name": "먹보스",
+      "name": "먹보스 쭈엽이",
       "emoji": "🔥",
       "color": "#FFD93D",
-      "description": "서울 맛집 전문 리뷰어",
+      "description": "맛집 리뷰 전문",
       "subscribers": "180만"
     },
     {
-      "id": "haemuk",
-      "name": "해먹남녀",
-      "emoji": "🍳",
-      "color": "#6C5CE7",
-      "description": "집밥·레시피 전문",
-      "subscribers": "350만"
+      "id": "hibab",
+      "name": "히밥",
+      "emoji": "🍚",
+      "color": "#2ECC71",
+      "description": "대식가 먹방",
+      "subscribers": "500만"
+    },
+    {
+      "id": "choiza",
+      "name": "최자로드",
+      "emoji": "🚗",
+      "color": "#9B59B6",
+      "description": "맛집 탐방 유튜버",
+      "subscribers": "100만"
+    },
+    {
+      "id": "bigface",
+      "name": "빅페이스",
+      "emoji": "😋",
+      "color": "#F39C12",
+      "description": "솔직 맛집 리뷰",
+      "subscribers": "150만"
     }
   ],
   "restaurants": [
