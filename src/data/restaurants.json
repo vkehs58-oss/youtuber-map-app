@@ -18,7 +18,7 @@
     },
     {
       "id": "pungja",
-      "name": "풍자(수제)",
+      "name": "풍자",
       "emoji": "🔪",
       "color": "#E74C3C",
       "description": "또간집 맛집 전문",
@@ -128,7 +128,7 @@
     },
     {
       "id": 5,
-      "youtuber": "풍자(수제)",
+      "youtuber": "풍자",
       "name": "광주 양동시장",
       "address": "광주 서구 천변좌로 238",
       "roadAddress": "광주 서구 천변좌로 238",
@@ -910,7 +910,7 @@
     },
     {
       "id": 51,
-      "youtuber": "풍자(수제)",
+      "youtuber": "풍자",
       "name": "시장통닭",
       "address": "광주 남구 군분로 45",
       "roadAddress": "광주 남구 군분로 45",
@@ -927,7 +927,7 @@
     },
     {
       "id": 52,
-      "youtuber": "풍자(수제)",
+      "youtuber": "풍자",
       "name": "홍어회",
       "address": "광주 서구 천변좌로246번길 16",
       "roadAddress": "광주 서구 천변좌로246번길 16",
@@ -944,7 +944,7 @@
     },
     {
       "id": 53,
-      "youtuber": "풍자(수제)",
+      "youtuber": "풍자",
       "name": "국밥",
       "address": "광주 북구 금재로 40",
       "roadAddress": "광주 북구 금재로 40",
@@ -961,7 +961,7 @@
     },
     {
       "id": 54,
-      "youtuber": "풍자(수제)",
+      "youtuber": "풍자",
       "name": "족발",
       "address": "광주 서구 경열로 138",
       "roadAddress": "광주 서구 경열로 138",
@@ -978,7 +978,7 @@
     },
     {
       "id": 55,
-      "youtuber": "풍자(수제)",
+      "youtuber": "풍자",
       "name": "순대",
       "address": "광주 서구 천변좌로246번길 11",
       "roadAddress": "광주 서구 천변좌로246번길 11",
@@ -995,7 +995,7 @@
     },
     {
       "id": 56,
-      "youtuber": "풍자(수제)",
+      "youtuber": "풍자",
       "name": "팥죽",
       "address": "광주 서구 양동시장2길 2",
       "roadAddress": "광주 서구 양동시장2길 2",
@@ -1012,7 +1012,7 @@
     },
     {
       "id": 57,
-      "youtuber": "풍자(수제)",
+      "youtuber": "풍자",
       "name": "다찌",
       "address": "경남 통영시 항남2길 25-11",
       "roadAddress": "경남 통영시 항남2길 25-11",
@@ -1029,7 +1029,7 @@
     },
     {
       "id": 58,
-      "youtuber": "풍자(수제)",
+      "youtuber": "풍자",
       "name": "망원동 즉석우동",
       "address": "서울 마포구 동교로 83",
       "roadAddress": "서울 마포구 동교로 83",
@@ -1046,7 +1046,7 @@
     },
     {
       "id": 59,
-      "youtuber": "풍자(수제)",
+      "youtuber": "풍자",
       "name": "광안리 회센타",
       "address": "부산 수영구 수영로606번길 9",
       "roadAddress": "부산 수영구 수영로606번길 9",
@@ -1063,7 +1063,7 @@
     },
     {
       "id": 60,
-      "youtuber": "풍자(수제)",
+      "youtuber": "풍자",
       "name": "연남횟집",
       "address": "서울 마포구 희우정로 122-1",
       "roadAddress": "서울 마포구 희우정로 122-1",
@@ -1080,7 +1080,7 @@
     },
     {
       "id": 61,
-      "youtuber": "풍자(수제)",
+      "youtuber": "풍자",
       "name": "김치찌개",
       "address": "서울 마포구 희우정로 121",
       "roadAddress": "서울 마포구 희우정로 121",
