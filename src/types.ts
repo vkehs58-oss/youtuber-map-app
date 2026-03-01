@@ -18,6 +18,7 @@ export interface Restaurant {
   lng: number
   menu: string
   priceRange: string
+  cuisine: string
   tags: string[]
   videoUrl: string
   videoTitle: string

@@ -51,7 +51,8 @@
       ],
       "videoUrl": "https://youtube.com/watch?v=gHE7_aGHE8I",
       "videoTitle": "서울역 근처 평양냉면 먹방",
-      "addedAt": "2026-03-01"
+      "addedAt": "2026-03-01",
+      "cuisine": "한식"
     },
     {
       "id": 2,
@@ -70,7 +71,8 @@
       ],
       "videoUrl": "https://youtube.com/watch?v=yd_00Ms05tM",
       "videoTitle": "한남동 소고기 먹방 10인분",
-      "addedAt": "2026-03-01"
+      "addedAt": "2026-03-01",
+      "cuisine": "한식"
     },
     {
       "id": 3,
@@ -89,7 +91,8 @@
       ],
       "videoUrl": "https://youtube.com/watch?v=zdREG1G6ad8",
       "videoTitle": "을지로 70년 전통 냉면 먹방",
-      "addedAt": "2026-03-01"
+      "addedAt": "2026-03-01",
+      "cuisine": "한식"
     },
     {
       "id": 4,
@@ -108,7 +111,8 @@
       ],
       "videoUrl": "https://youtube.com/watch?v=nolVB_za76c",
       "videoTitle": "골목식당 마포 양곰탕집",
-      "addedAt": "2026-03-01"
+      "addedAt": "2026-03-01",
+      "cuisine": "한식"
     },
     {
       "id": 5,
@@ -127,7 +131,8 @@
       ],
       "videoUrl": "https://youtube.com/watch?v=ipfQzn-Emqk",
       "videoTitle": "을지로 노가리 골목 탐방",
-      "addedAt": "2026-03-01"
+      "addedAt": "2026-03-01",
+      "cuisine": "주점"
     },
     {
       "id": 6,
@@ -146,7 +151,8 @@
       ],
       "videoUrl": "https://youtube.com/watch?v=LluhKLf7PAM",
       "videoTitle": "신당동 떡볶이 골목 탐방기",
-      "addedAt": "2026-03-01"
+      "addedAt": "2026-03-01",
+      "cuisine": "분식"
     },
     {
       "id": 7,
@@ -165,7 +171,8 @@
       ],
       "videoUrl": "https://youtube.com/watch?v=OVkH33KawIU",
       "videoTitle": "연남동 숨은 돈카츠 맛집",
-      "addedAt": "2026-03-01"
+      "addedAt": "2026-03-01",
+      "cuisine": "일식"
     },
     {
       "id": 8,
@@ -184,7 +191,8 @@
       ],
       "videoUrl": "https://youtube.com/watch?v=YjQKTIDbZXc",
       "videoTitle": "홍대 멕시칸 타코 먹방",
-      "addedAt": "2026-03-01"
+      "addedAt": "2026-03-01",
+      "cuisine": "양식"
     },
     {
       "id": 9,
@@ -203,7 +211,8 @@
       ],
       "videoUrl": "https://youtube.com/watch?v=C6mVPHoEjiI",
       "videoTitle": "광장시장 먹거리 투어",
-      "addedAt": "2026-03-01"
+      "addedAt": "2026-03-01",
+      "cuisine": "한식"
     },
     {
       "id": 10,
@@ -222,7 +231,8 @@
       ],
       "videoUrl": "https://youtube.com/watch?v=zCNQVwMDv8Y",
       "videoTitle": "이태원 이색 먹거리 탐방",
-      "addedAt": "2026-03-01"
+      "addedAt": "2026-03-01",
+      "cuisine": "양식"
     }
   ]
 }
