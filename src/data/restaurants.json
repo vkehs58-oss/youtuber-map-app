@@ -335,6 +335,693 @@
       "videoUrl": "https://youtube.com/watch?v=89sYE1tOn9o",
       "videoTitle": "서초갈비 7년의 약속",
       "addedAt": "2026-03-01"
+    },
+    {
+      "id": 21,
+      "youtuber": "tzuyang",
+      "name": "안면도간장게장맛집 일송꽃게장 본점",
+      "address": "충남 태안군 안면읍 안면대로 2676",
+      "roadAddress": "충남 태안군 안면읍 안면대로 2676",
+      "location": "태안",
+      "lat": 36.5326567315078,
+      "lng": 126.349510011996,
+      "menu": "간장게장, 게국지",
+      "cuisine": "한식",
+      "priceRange": "정보없음",
+      "tags": [
+        "한식"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=1X4GQtKPe7Y",
+      "videoTitle": "사장님이 제가 게장 제일 많이먹었대요🤣 역대급 맛있는 태안 간장게장과 게국지 19마리 먹방",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": 22,
+      "youtuber": "tzuyang",
+      "name": "서울곱창",
+      "address": "광주 광산구 송정로15번길 71",
+      "roadAddress": "광주 광산구 송정로15번길 71",
+      "location": "광주",
+      "lat": 35.1387660650508,
+      "lng": 126.796510303651,
+      "menu": "곱창",
+      "cuisine": "한식",
+      "priceRange": "정보없음",
+      "tags": [
+        "한식"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=5kvyjueOvxE",
+      "videoTitle": "광주 현지분께 추천 받았습니다🥺 70년 전통?! 오픈부터 마감까지 줄서있는 서울곱창 먹방",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": 23,
+      "youtuber": "sungsikyung",
+      "name": "삼각정",
+      "address": "서울 용산구 한강대로 149",
+      "roadAddress": "서울 용산구 한강대로 149",
+      "location": "서울 용산구 삼각지",
+      "lat": 37.532791854348616,
+      "lng": 126.9709832111394,
+      "menu": "정보 없음",
+      "cuisine": "주점",
+      "priceRange": "정보없음",
+      "tags": [
+        "주점"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=BRB34sU9lJM",
+      "videoTitle": "[sub] 성시경의 먹을텐데 l 삼각지 삼각정",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": 24,
+      "youtuber": "pungja",
+      "name": "광주양동시장",
+      "address": "광주 서구 천변좌로 238",
+      "roadAddress": "광주 서구 천변좌로 238",
+      "location": "광주 양동시장",
+      "lat": 35.1545376720738,
+      "lng": 126.901960377722,
+      "menu": "홍어, 닭볶음탕, 족발",
+      "cuisine": "한식",
+      "priceRange": "정보없음",
+      "tags": [
+        "한식"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=frI1Fd1UDNQ",
+      "videoTitle": "이번에도 각오했습니다 🫶",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": 25,
+      "youtuber": "mukboss",
+      "name": "신솔돈",
+      "address": "서울 동대문구 하정로5길 1",
+      "roadAddress": "서울 동대문구 하정로5길 1",
+      "location": "서울 동대문구",
+      "lat": 37.57597732225767,
+      "lng": 127.02626455773944,
+      "menu": "돼지고기",
+      "cuisine": "한식",
+      "priceRange": "정보없음",
+      "tags": [
+        "한식"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=T8EU_HFt2Pc",
+      "videoTitle": "돼지고기는 기름 빠지면 얼마 안 돼~ 고대 맛집 추천!!! [신솔돈]",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": 26,
+      "youtuber": "mukboss",
+      "name": "우회전 양재점",
+      "address": "서울 서초구 동산로2길 16",
+      "roadAddress": "서울 서초구 동산로2길 16",
+      "location": "서울특별시 서초구",
+      "lat": 37.4691410264274,
+      "lng": 127.041622474817,
+      "menu": "회전 고깃집 (소고기, 갈빗살)",
+      "cuisine": "한식",
+      "priceRange": "정보없음",
+      "tags": [
+        "한식"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=pSgwAQSmcXQ",
+      "videoTitle": "아이들이랑 오면 거덜 나겠네~ 생전 처음 가보는 회전 고깃집! [우회전]",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": 27,
+      "youtuber": "choiza",
+      "name": "한우촌",
+      "address": "광주 서구 운천로162번길 10",
+      "roadAddress": "광주 서구 운천로162번길 10",
+      "location": "광주 쌍촌동",
+      "lat": 35.1472922215091,
+      "lng": 126.857967658193,
+      "menu": "소고기, 생고기, 안창살, 갈비살, 안심추리, 육회비빔밥, 떡국, 육회",
+      "cuisine": "한식",
+      "priceRange": "정보없음",
+      "tags": [
+        "한식"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=kv2ohUhQgtM",
+      "videoTitle": "당일 도축한 신선한 생고기의 향연 🥩 | 최자로드 온더웨이 EP. 27",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": 28,
+      "youtuber": "choiza",
+      "name": "성수족발",
+      "address": "서울 성동구 아차산로7길 7",
+      "roadAddress": "서울 성동구 아차산로7길 7",
+      "location": "서울 성수동",
+      "lat": 37.54602762815355,
+      "lng": 127.05431637398702,
+      "menu": "쪽갈비",
+      "cuisine": "한식",
+      "priceRange": "정보없음",
+      "tags": [
+        "한식"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=VYAzm432Lho",
+      "videoTitle": "부지런한 돼지들의 쪽갈비 3중주 🍖",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": 29,
+      "youtuber": "choiza",
+      "name": "청춘극장 행당직영점",
+      "address": "서울 성동구 행당로 112-5",
+      "roadAddress": "서울 성동구 행당로 112-5",
+      "location": "행당동",
+      "lat": 37.55772192605212,
+      "lng": 127.03127074915257,
+      "menu": "쪽갈비, 매운쪽갈비, 라면",
+      "cuisine": "한식",
+      "priceRange": "정보없음",
+      "tags": [
+        "한식"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=yQ_oRqiEeaA",
+      "videoTitle": "부지런한 돼지들의 쪽갈비 3중주 🍖 | 최자로드 온더웨이 EP. 26",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": 30,
+      "youtuber": "choiza",
+      "name": "천일만두",
+      "address": "제주특별자치도 서귀포시 서문로 25",
+      "roadAddress": "제주특별자치도 서귀포시 서문로 25",
+      "location": "제주",
+      "lat": 33.25050150235034,
+      "lng": 126.55908772319164,
+      "menu": "메밀 샌드위치",
+      "cuisine": "기타",
+      "priceRange": "정보없음",
+      "tags": [
+        "기타"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=Mx18VDywvgs",
+      "videoTitle": "입 벌려 메밀 샌드위치 들어간다",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": 31,
+      "youtuber": "bigface",
+      "name": "뚝배기",
+      "address": "경남 거제시 아주로 50",
+      "roadAddress": "경남 거제시 아주로 50",
+      "location": "거제도",
+      "lat": 34.86497625299955,
+      "lng": 128.68934352560262,
+      "menu": "개조개미역국, 해물라면",
+      "cuisine": "한식",
+      "priceRange": "정보없음",
+      "tags": [
+        "한식"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=6PmriZ7fNlI",
+      "videoTitle": "거제도 갈 거면 이 영상 꼭 보고 가세요...",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": 32,
+      "youtuber": "bigface",
+      "name": "고렝 연희점",
+      "address": "서울 서대문구 증가로 13-9",
+      "roadAddress": "서울 서대문구 증가로 13-9",
+      "location": "연희동",
+      "lat": 37.56914408070823,
+      "lng": 126.93104783080018,
+      "menu": "쌀국수, 나시고렝",
+      "cuisine": "기타",
+      "priceRange": "정보없음",
+      "tags": [
+        "기타"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=M6TsJiM-D4A",
+      "videoTitle": "죽음을 불사한 용기로 생명을 살린 기적의 0.3초",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": 33,
+      "youtuber": "bigface",
+      "name": "룡룡버거하우스 성수점",
+      "address": "서울 성동구 성수이로 90",
+      "roadAddress": "서울 성동구 성수이로 90",
+      "location": "성수동",
+      "lat": 37.5429657423494,
+      "lng": 127.056847681262,
+      "menu": [
+        "가장 매운 미친 햄버거",
+        "마라버거"
+      ],
+      "cuisine": "양식",
+      "priceRange": "정보없음",
+      "tags": [
+        "양식"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=eqFndfgo8CI",
+      "videoTitle": "전국에서 가장 매운 미친 햄버거",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": 34,
+      "youtuber": "bigface",
+      "name": "오토김밥 본점",
+      "address": "서울 용산구 녹사평대로26길 93",
+      "roadAddress": "서울 용산구 녹사평대로26길 93",
+      "location": "서울",
+      "lat": 37.531612285425,
+      "lng": 126.994696121756,
+      "menu": "다시마김밥, 유부김밥, 오이김밥",
+      "cuisine": "분식",
+      "priceRange": "정보없음",
+      "tags": [
+        "분식"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=d6lx6cpNlSM",
+      "videoTitle": "대한민국 최고의 김밥을 먹어봤습니다",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": 35,
+      "youtuber": "bigface",
+      "name": "서호김밥 본점",
+      "address": "서울 서초구 방배중앙로 141-1",
+      "roadAddress": "서울 서초구 방배중앙로 141-1",
+      "location": "서울",
+      "lat": 37.49165481509506,
+      "lng": 126.98669083262632,
+      "menu": "누드김밥, 참치김밥",
+      "cuisine": "분식",
+      "priceRange": "정보없음",
+      "tags": [
+        "분식"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=d6lx6cpNlSM",
+      "videoTitle": "대한민국 최고의 김밥을 먹어봤습니다",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": 36,
+      "youtuber": "bigface",
+      "name": "흑미원조 2018 식물원김밥",
+      "address": "서울 서초구 서초대로38길 12",
+      "roadAddress": "서울 서초구 서초대로38길 12",
+      "location": "서울",
+      "lat": 37.4904931429998,
+      "lng": 127.005371076134,
+      "menu": "명란김밥, 와사비김밥",
+      "cuisine": "분식",
+      "priceRange": "정보없음",
+      "tags": [
+        "분식"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=d6lx6cpNlSM",
+      "videoTitle": "대한민국 최고의 김밥을 먹어봤습니다",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": 37,
+      "youtuber": "bigface",
+      "name": "수아당",
+      "address": "서울 성북구 동소문로20가길 33",
+      "roadAddress": "서울 성북구 동소문로20가길 33",
+      "location": "서울",
+      "lat": 37.59307070910963,
+      "lng": 127.01802173601061,
+      "menu": "김밥",
+      "cuisine": "분식",
+      "priceRange": "정보없음",
+      "tags": [
+        "분식"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=d6lx6cpNlSM",
+      "videoTitle": "대한민국 최고의 김밥을 먹어봤습니다",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": 38,
+      "youtuber": "bigface",
+      "name": "광장시장통큰누이네육회빈대떡",
+      "address": "서울 종로구 동호로 403-24",
+      "roadAddress": "서울 종로구 동호로 403-24",
+      "location": "서울 광장시장",
+      "lat": 37.570439119331844,
+      "lng": 127.00117723880923,
+      "menu": "김밥",
+      "cuisine": "분식",
+      "priceRange": "정보없음",
+      "tags": [
+        "분식"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=d6lx6cpNlSM",
+      "videoTitle": "대한민국 최고의 김밥을 먹어봤습니다",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": 39,
+      "youtuber": "bigface",
+      "name": "원조누드김밥",
+      "address": "서울 종로구 창경궁로 88",
+      "roadAddress": "서울 종로구 창경궁로 88",
+      "location": "서울",
+      "lat": 37.57001835564344,
+      "lng": 126.9989450188481,
+      "menu": "누드김밥",
+      "cuisine": "분식",
+      "priceRange": "정보없음",
+      "tags": [
+        "분식"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=d6lx6cpNlSM",
+      "videoTitle": "대한민국 최고의 김밥을 먹어봤습니다",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": 40,
+      "youtuber": "bigface",
+      "name": "호랑이김밥",
+      "address": "서울 성북구 성북로 18",
+      "roadAddress": "서울 성북구 성북로 18",
+      "location": "서울",
+      "lat": 37.5897959748539,
+      "lng": 127.00492303815,
+      "menu": "김밥",
+      "cuisine": "분식",
+      "priceRange": "정보없음",
+      "tags": [
+        "분식"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=d6lx6cpNlSM",
+      "videoTitle": "대한민국 최고의 김밥을 먹어봤습니다",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": 41,
+      "youtuber": "bigface",
+      "name": "야수각 북수원점",
+      "address": "경기 수원시 장안구 영화로72번길 3",
+      "roadAddress": "경기 수원시 장안구 영화로72번길 3",
+      "location": "수원",
+      "lat": 37.293056483733025,
+      "lng": 127.00671035744145,
+      "menu": "편식짬뽕, 편식짜장, 간짬뽕",
+      "cuisine": "중식",
+      "priceRange": "정보없음",
+      "tags": [
+        "중식"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=fs9gSI5wp3Y",
+      "videoTitle": "진짜 편식하는 사람은 &#39;편식짬뽕&#39;을 싫어한다!",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": 42,
+      "youtuber": "bigface",
+      "name": "선화동소머리해장국 본점",
+      "address": "대전 중구 선화로 128",
+      "roadAddress": "대전 중구 선화로 128",
+      "location": "대전 선화동",
+      "lat": 36.330445858347986,
+      "lng": 127.42130043965959,
+      "menu": "실비김치, 소머리해장국",
+      "cuisine": "한식",
+      "priceRange": "정보없음",
+      "tags": [
+        "한식"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=4IrmfsqSY2o",
+      "videoTitle": "여러분들이 알고 계시는 실비김치는 가짜!",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": 43,
+      "youtuber": "bigface",
+      "name": "멕시타이거",
+      "address": "서울 강남구 테헤란로1길 42",
+      "roadAddress": "서울 강남구 테헤란로1길 42",
+      "location": "강남",
+      "lat": 37.501130134367,
+      "lng": 127.027148703417,
+      "menu": "멕시칸 치킨, 퀘사디아, 몰레소스",
+      "cuisine": "멕시코 요리",
+      "priceRange": "정보없음",
+      "tags": [
+        "멕시코 요리"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=kUz-u6CYuRw",
+      "videoTitle": "국내 최초! XX를 제공하는 강남 웨이팅 1위 술집",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": 44,
+      "youtuber": "bigface",
+      "name": "이성당 본점",
+      "address": "전북특별자치도 군산시 중앙로 177",
+      "roadAddress": "전북특별자치도 군산시 중앙로 177",
+      "location": "군산",
+      "lat": 35.987200639723106,
+      "lng": 126.71126336899455,
+      "menu": "빵",
+      "cuisine": "디저트",
+      "priceRange": "정보없음",
+      "tags": [
+        "디저트"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=DwExu3uiCvs",
+      "videoTitle": "그냥 떡볶이 튀김이 20만원??",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": 45,
+      "youtuber": "bigface",
+      "name": "한일옥",
+      "address": "전북특별자치도 군산시 구영3길 63",
+      "roadAddress": "전북특별자치도 군산시 구영3길 63",
+      "location": "군산",
+      "lat": 35.9874474503336,
+      "lng": 126.708230699414,
+      "menu": "쇠고기 무우국",
+      "cuisine": "한식",
+      "priceRange": "정보없음",
+      "tags": [
+        "한식"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=DwExu3uiCvs",
+      "videoTitle": "그냥 떡볶이 튀김이 20만원??",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": 46,
+      "youtuber": "bigface",
+      "name": "째보식당 본점",
+      "address": "전북특별자치도 군산시 구영3길 70",
+      "roadAddress": "전북특별자치도 군산시 구영3길 70",
+      "location": "군산",
+      "lat": 35.98767231174295,
+      "lng": 126.70878876561339,
+      "menu": "간장게장, 새우장, 전복장",
+      "cuisine": "한식",
+      "priceRange": "정보없음",
+      "tags": [
+        "한식"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=DwExu3uiCvs",
+      "videoTitle": "그냥 떡볶이 튀김이 20만원??",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": 47,
+      "youtuber": "bigface",
+      "name": "지린성",
+      "address": "전북특별자치도 군산시 미원로 87",
+      "roadAddress": "전북특별자치도 군산시 미원로 87",
+      "location": "군산",
+      "lat": 35.97965477064132,
+      "lng": 126.71396085989238,
+      "menu": "고추짜장, 고추짬뽕",
+      "cuisine": "중식",
+      "priceRange": "정보없음",
+      "tags": [
+        "중식"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=DwExu3uiCvs",
+      "videoTitle": "그냥 떡볶이 튀김이 20만원??",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": 48,
+      "youtuber": "bigface",
+      "name": "여미랑",
+      "address": "전북특별자치도 군산시 구영6길 13",
+      "roadAddress": "전북특별자치도 군산시 구영6길 13",
+      "location": "군산",
+      "lat": 35.98505386644112,
+      "lng": 126.70826723378644,
+      "menu": "떡갈비",
+      "cuisine": "한식",
+      "priceRange": "정보없음",
+      "tags": [
+        "한식"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=DwExu3uiCvs",
+      "videoTitle": "그냥 떡볶이 튀김이 20만원??",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": 49,
+      "youtuber": "bigface",
+      "name": "진갈비",
+      "address": "전북특별자치도 군산시 구영1길 108-7",
+      "roadAddress": "전북특별자치도 군산시 구영1길 108-7",
+      "location": "군산",
+      "lat": 35.9893817424088,
+      "lng": 126.709075243797,
+      "menu": "떡갈비",
+      "cuisine": "한식",
+      "priceRange": "정보없음",
+      "tags": [
+        "한식"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=DwExu3uiCvs",
+      "videoTitle": "그냥 떡볶이 튀김이 20만원??",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": 50,
+      "youtuber": "bigface",
+      "name": "순돌이곱창",
+      "address": "전북특별자치도 군산시 우체통거리2길 43-9",
+      "roadAddress": "전북특별자치도 군산시 우체통거리2길 43-9",
+      "location": "군산",
+      "lat": 35.9856633057415,
+      "lng": 126.71133328573,
+      "menu": "곱창",
+      "cuisine": "한식",
+      "priceRange": "정보없음",
+      "tags": [
+        "한식"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=DwExu3uiCvs",
+      "videoTitle": "그냥 떡볶이 튀김이 20만원??",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": 51,
+      "youtuber": "bigface",
+      "name": "엄마밥상",
+      "address": "전북특별자치도 군산시 구영7길 16",
+      "roadAddress": "전북특별자치도 군산시 구영7길 16",
+      "location": "군산",
+      "lat": 35.984611598248,
+      "lng": 126.709107170601,
+      "menu": "오징어무국",
+      "cuisine": "한식",
+      "priceRange": "정보없음",
+      "tags": [
+        "한식"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=DwExu3uiCvs",
+      "videoTitle": "그냥 떡볶이 튀김이 20만원??",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": 52,
+      "youtuber": "bigface",
+      "name": "만남스넥",
+      "address": "전북특별자치도 군산시 대학로 67-3",
+      "roadAddress": "전북특별자치도 군산시 대학로 67-3",
+      "location": "군산",
+      "lat": 35.984178824622944,
+      "lng": 126.70977629761406,
+      "menu": "떡볶이, 튀김",
+      "cuisine": "분식",
+      "priceRange": "정보없음",
+      "tags": [
+        "분식"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=DwExu3uiCvs",
+      "videoTitle": "그냥 떡볶이 튀김이 20만원??",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": 53,
+      "youtuber": "bigface",
+      "name": "비행장정문부대찌개",
+      "address": "전북특별자치도 군산시 하나운안2길 14",
+      "roadAddress": "전북특별자치도 군산시 하나운안2길 14",
+      "location": "군산",
+      "lat": 35.9636183027218,
+      "lng": 126.694971077347,
+      "menu": "부대찌개",
+      "cuisine": "한식",
+      "priceRange": "정보없음",
+      "tags": [
+        "한식"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=DwExu3uiCvs",
+      "videoTitle": "그냥 떡볶이 튀김이 20만원??",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": 54,
+      "youtuber": "bigface",
+      "name": "반한",
+      "address": "전북특별자치도 군산시 경암로 48",
+      "roadAddress": "전북특별자치도 군산시 경암로 48",
+      "location": "군산",
+      "lat": 35.97517135615867,
+      "lng": 126.72960476095169,
+      "menu": "햄버거",
+      "cuisine": "기타",
+      "priceRange": "정보없음",
+      "tags": [
+        "기타"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=DwExu3uiCvs",
+      "videoTitle": "그냥 떡볶이 튀김이 20만원??",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": 55,
+      "youtuber": "bigface",
+      "name": "마초 스테이크",
+      "address": "서울 강남구 논현로159길 10",
+      "roadAddress": "서울 강남구 논현로159길 10",
+      "location": "압구정",
+      "lat": 37.5231163961185,
+      "lng": 127.027338798658,
+      "menu": "스테이크",
+      "cuisine": "양식",
+      "priceRange": "정보없음",
+      "tags": [
+        "양식"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=bqpcCGv-amk",
+      "videoTitle": "고기 등급부터 맛집 일수가 없다!",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": 56,
+      "youtuber": "bigface",
+      "name": "보영만두 북문본점",
+      "address": "경기 수원시 장안구 팔달로 271",
+      "roadAddress": "경기 수원시 장안구 팔달로 271",
+      "location": "수원",
+      "lat": 37.28950120389861,
+      "lng": 127.01439332133698,
+      "menu": "군만두, 쫄면",
+      "cuisine": "분식",
+      "priceRange": "정보없음",
+      "tags": [
+        "분식"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=y_8ybQ9ovTg",
+      "videoTitle": "수원 50년 만두 맛집 풀리지 않는 원조의 진실",
+      "addedAt": "2026-03-01"
     }
   ]
 }
