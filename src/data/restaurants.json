@@ -257,6 +257,204 @@
       "videoTitle": "이태원 이색 먹거리 탐방",
       "addedAt": "2026-03-01",
       "cuisine": "양식"
+    },
+    {
+      "id": 11,
+      "youtuber": "tzuyang",
+      "name": "양포항",
+      "address": "경북 경주시 양북면",
+      "roadAddress": "경북 경주시 양북면",
+      "location": "경주",
+      "lat": 35.8810769,
+      "lng": 129.5200188,
+      "menu": "직화아구불고기, 깐풍아구, 아구순살튀김",
+      "cuisine": "한식",
+      "priceRange": "2만원대",
+      "tags": [
+        "한식",
+        "아구"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=Azb3rMHmUhI",
+      "videoTitle": "사장님이 제가 오는게 꿈이었대요😭",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": 12,
+      "youtuber": "tzuyang",
+      "name": "태안 간장게장 일송꽃게장",
+      "address": "충남 태안군 안면읍",
+      "roadAddress": "충남 태안군 안면읍",
+      "location": "태안",
+      "lat": 36.5326567,
+      "lng": 126.34951,
+      "menu": "간장게장, 게국지",
+      "cuisine": "한식",
+      "priceRange": "3만원대",
+      "tags": [
+        "한식",
+        "게장"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=1X4GQtKPe7Y",
+      "videoTitle": "역대급 맛있는 태안 간장게장과 게국지 19마리 먹방",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": 13,
+      "youtuber": "sungsikyung",
+      "name": "토리츠바키",
+      "address": "도쿄 다이토구 네기시",
+      "roadAddress": "도쿄 다이토구 네기시",
+      "location": "도쿄",
+      "lat": 35.7219,
+      "lng": 139.7843,
+      "menu": "야키토리",
+      "cuisine": "일식",
+      "priceRange": "3만원대",
+      "tags": [
+        "일식",
+        "야키토리"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=M2vpWqrakxM",
+      "videoTitle": "성시경의 먹을텐데 l 도쿄 토리츠바키, 아게산",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": 14,
+      "youtuber": "sungsikyung",
+      "name": "아게산",
+      "address": "도쿄 주오구 긴자",
+      "roadAddress": "도쿄 주오구 긴자",
+      "location": "도쿄",
+      "lat": 35.6717,
+      "lng": 139.7649,
+      "menu": "돈카츠",
+      "cuisine": "일식",
+      "priceRange": "3만원대",
+      "tags": [
+        "일식",
+        "돈카츠"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=M2vpWqrakxM",
+      "videoTitle": "성시경의 먹을텐데 l 도쿄 토리츠바키, 아게산",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": 15,
+      "youtuber": "mukboss",
+      "name": "부민옥",
+      "address": "서울 중구 다동길 24-12",
+      "roadAddress": "서울 중구 다동길 24-12",
+      "location": "서울 중구",
+      "lat": 37.5675038,
+      "lng": 126.9803182,
+      "menu": "육개장, 수육, 양곰탕",
+      "cuisine": "한식",
+      "priceRange": "1만원대",
+      "tags": [
+        "한식",
+        "곰탕"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=pivAfGyu5kI",
+      "videoTitle": "직장인들의 성지! 육개장 미쳤고요",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": 16,
+      "youtuber": "mukboss",
+      "name": "앰배서더서울풀만 더킹스",
+      "address": "서울 중구 동호로 287",
+      "roadAddress": "서울 중구 동호로 287",
+      "location": "서울 중구",
+      "lat": 37.5600776,
+      "lng": 127.0023201,
+      "menu": "호텔 뷔페",
+      "cuisine": "양식",
+      "priceRange": "10만원대",
+      "tags": [
+        "뷔페",
+        "호텔"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=905WgiAnwic",
+      "videoTitle": "먹보스 최초!! 현주엽의 호텔 뷔페 방문",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": 17,
+      "youtuber": "bigface",
+      "name": "뚝배기집",
+      "address": "경남 거제시",
+      "roadAddress": "경남 거제시",
+      "location": "거제도",
+      "lat": 34.8748837,
+      "lng": 128.7304818,
+      "menu": "뚝배기 정식",
+      "cuisine": "한식",
+      "priceRange": "1만원대",
+      "tags": [
+        "한식",
+        "정식"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=6PmriZ7fNlI",
+      "videoTitle": "거제도 갈 거면 이 영상 꼭 보고 가세요",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": 18,
+      "youtuber": "bigface",
+      "name": "바릇",
+      "address": "경남 거제시",
+      "roadAddress": "경남 거제시",
+      "location": "거제도",
+      "lat": 34.8137434,
+      "lng": 128.7083911,
+      "menu": "해산물",
+      "cuisine": "한식",
+      "priceRange": "2만원대",
+      "tags": [
+        "해산물"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=6PmriZ7fNlI",
+      "videoTitle": "거제도 갈 거면 이 영상 꼭 보고 가세요",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": 19,
+      "youtuber": "bigface",
+      "name": "거제다찌",
+      "address": "경남 거제시",
+      "roadAddress": "경남 거제시",
+      "location": "거제도",
+      "lat": 34.8928988,
+      "lng": 128.6256689,
+      "menu": "일식 다찌",
+      "cuisine": "일식",
+      "priceRange": "2만원대",
+      "tags": [
+        "일식"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=6PmriZ7fNlI",
+      "videoTitle": "거제도 갈 거면 이 영상 꼭 보고 가세요",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": 20,
+      "youtuber": "bigface",
+      "name": "서초갈비",
+      "address": "부산광역시",
+      "roadAddress": "부산광역시",
+      "location": "부산",
+      "lat": 35.1612512,
+      "lng": 129.0627159,
+      "menu": "갈비",
+      "cuisine": "한식",
+      "priceRange": "3만원대",
+      "tags": [
+        "한식",
+        "갈비"
+      ],
+      "videoUrl": "https://youtube.com/watch?v=89sYE1tOn9o",
+      "videoTitle": "서초갈비 7년의 약속",
+      "addedAt": "2026-03-01"
     }
   ]
 }
