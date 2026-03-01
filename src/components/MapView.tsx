@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useCallback } from 'react'
+import { useEffect, useRef, useState, useCallback, TouchEvent as RE } from 'react'
 import type { Restaurant, Youtuber } from '../types'
 
 declare global {
@@ -34,6 +34,35 @@ export default function MapView({ allRestaurants, restaurants, youtubers, select
   const [myPos, setMyPos] = useState<{ lat: number; lng: number } | null>(null)
   const [geoLoading, setGeoLoading] = useState(false)
   const [nearbyList, setNearbyList] = useState<(Restaurant & { distance: number })[]>([])
+  // 바텀시트 드래그
+  const sheetRef = useRef<HTMLDivElement>(null)
+  const dragStart = useRef<{ y: number; h: number } | null>(null)
+  const [sheetH, setSheetH] = useState(0) // 0=hidden, px from bottom
+  const PEEK = 130, HALF = Math.round(window.innerHeight * 0.45), FULL = Math.round(window.innerHeight * 0.85)
+
+  const snapTo = useCallback((h: number) => {
+    // snap to closest: 0, PEEK, HALF, FULL
+    const snaps = [0, PEEK, HALF, FULL]
+    const closest = snaps.reduce((a, b) => Math.abs(b - h) < Math.abs(a - h) ? b : a)
+    setSheetH(closest)
+  }, [PEEK, HALF, FULL])
+
+  const onTouchStart = useCallback((e: RE<HTMLDivElement>) => {
+    dragStart.current = { y: e.touches[0].clientY, h: sheetH }
+  }, [sheetH])
+
+  const onTouchMove = useCallback((e: RE<HTMLDivElement>) => {
+    if (!dragStart.current) return
+    const dy = dragStart.current.y - e.touches[0].clientY
+    const newH = Math.max(0, Math.min(FULL, dragStart.current.h + dy))
+    setSheetH(newH)
+  }, [FULL])
+
+  const onTouchEnd = useCallback(() => {
+    if (!dragStart.current) return
+    snapTo(sheetH)
+    dragStart.current = null
+  }, [sheetH, snapTo])
 
   // 카카오맵 SDK 로드
   useEffect(() => {
@@ -107,6 +136,7 @@ export default function MapView({ allRestaurants, restaurants, youtubers, select
     if (nearbyMode) {
       setNearbyMode(false)
       setNearbyList([])
+      setSheetH(0)
       if (myMarker.current) { myMarker.current.setMap(null); myMarker.current = null }
       addMarkers(restaurants)
       return
@@ -134,8 +164,9 @@ export default function MapView({ allRestaurants, restaurants, youtubers, select
         const nearby = allRestaurants
           .map(r => ({ ...r, distance: getDistance(lat, lng, r.lat, r.lng) }))
           .sort((a, b) => a.distance - b.distance)
-          .slice(0, 10)
+          .slice(0, 20)
         setNearbyList(nearby)
+        setSheetH(PEEK)
         addMarkers(nearby)
       },
       () => { setGeoLoading(false); alert('위치 권한을 허용해주세요') },
@@ -198,34 +229,52 @@ export default function MapView({ allRestaurants, restaurants, youtubers, select
         </div>
       )}
 
-      {/* 내 주변 바텀시트 */}
+      {/* 드래그 바텀시트 */}
       {nearbyMode && nearbyList.length > 0 && (
-        <div className="absolute bottom-0 left-0 right-0 bg-white rounded-t-2xl shadow-[0_-4px_20px_rgba(0,0,0,0.1)] max-h-[35vh] overflow-y-auto z-10">
-          <div className="sticky top-0 bg-white pt-3 pb-2 px-4 border-b border-toss-gray-100">
-            <div className="w-10 h-1 bg-toss-gray-200 rounded-full mx-auto mb-2" />
+        <div
+          ref={sheetRef}
+          className="absolute left-0 right-0 bg-white rounded-t-2xl shadow-[0_-4px_20px_rgba(0,0,0,0.12)] z-10 flex flex-col"
+          style={{
+            bottom: 0,
+            height: `${sheetH}px`,
+            transition: dragStart.current ? 'none' : 'height 0.3s cubic-bezier(0.25,1,0.5,1)',
+          }}
+        >
+          {/* 드래그 핸들 */}
+          <div
+            className="pt-2.5 pb-2 px-4 cursor-grab shrink-0"
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
+          >
+            <div className="w-10 h-1 bg-toss-gray-300 rounded-full mx-auto mb-2" />
             <div className="text-[14px] font-bold text-toss-gray-800">📍 내 주변 맛집 {nearbyList.length}곳</div>
           </div>
-          {nearbyList.map(r => {
-            const yt = youtubers.find(y => y.name === r.youtuber)
-            const distStr = r.distance < 1 ? `${Math.round(r.distance * 1000)}m` : `${r.distance.toFixed(1)}km`
-            return (
-              <button
-                key={r.id}
-                onClick={() => onSelectRestaurant(r)}
-                className="w-full px-4 py-3 flex items-center gap-3 active:bg-toss-gray-50 border-b border-toss-gray-50 text-left"
-              >
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center text-[18px] shrink-0"
-                  style={{ background: `${yt?.color || '#3182f6'}15` }}>
-                  {yt?.emoji || '📍'}
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="text-[14px] font-bold text-toss-gray-900 truncate">{r.name}</div>
-                  <div className="text-[11px] text-toss-gray-500 mt-0.5 truncate">{r.cuisine} · {yt?.name}</div>
-                </div>
-                <div className="text-[13px] font-extrabold text-toss-blue shrink-0">{distStr}</div>
-              </button>
-            )
-          })}
+
+          {/* 스크롤 리스트 */}
+          <div className="flex-1 overflow-y-auto overscroll-contain">
+            {nearbyList.map(r => {
+              const yt = youtubers.find(y => y.name === r.youtuber)
+              const distStr = r.distance < 1 ? `${Math.round(r.distance * 1000)}m` : `${r.distance.toFixed(1)}km`
+              return (
+                <button
+                  key={r.id}
+                  onClick={() => onSelectRestaurant(r)}
+                  className="w-full px-4 py-3 flex items-center gap-3 active:bg-toss-gray-50 border-b border-toss-gray-50 text-left"
+                >
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center text-[18px] shrink-0"
+                    style={{ background: `${yt?.color || '#3182f6'}15` }}>
+                    {yt?.emoji || '📍'}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="text-[14px] font-bold text-toss-gray-900 truncate">{r.name}</div>
+                    <div className="text-[11px] text-toss-gray-500 mt-0.5 truncate">{r.cuisine} · {yt?.name}</div>
+                  </div>
+                  <div className="text-[13px] font-extrabold text-toss-blue shrink-0">{distStr}</div>
+                </button>
+              )
+            })}
+          </div>
         </div>
       )}
     </div>
