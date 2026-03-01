@@ -2,10 +2,13 @@ import { useState, useMemo } from 'react'
 import data from './data/restaurants.json'
 import type { AppData, Restaurant } from './types'
 import RestaurantDetail from './components/RestaurantDetail'
+import MapView from './components/MapView'
 
 const appData = data as AppData
+type Tab = 'home' | 'map'
 
 function App() {
+  const [tab, setTab] = useState<Tab>('home')
   const [selectedRestaurant, setSelectedRestaurant] = useState<Restaurant | null>(null)
   const [expandedYoutuber, setExpandedYoutuber] = useState<string | null>(null)
   const [expandedCuisine, setExpandedCuisine] = useState<string | null>(null)
@@ -72,6 +75,28 @@ function App() {
             </div>
           </div>
 
+          {/* 탭 */}
+          <div className="px-5 pb-3">
+            <div className="flex bg-toss-gray-100 rounded-xl p-1">
+              <button
+                onClick={() => setTab('home')}
+                className={`flex-1 py-2.5 rounded-lg text-[14px] font-bold transition-all flex items-center justify-center gap-1.5 ${
+                  tab === 'home' ? 'bg-white text-toss-blue shadow-sm' : 'text-toss-gray-500'
+                }`}
+              >
+                🏠 맛집 목록
+              </button>
+              <button
+                onClick={() => setTab('map')}
+                className={`flex-1 py-2.5 rounded-lg text-[14px] font-bold transition-all flex items-center justify-center gap-1.5 ${
+                  tab === 'map' ? 'bg-white text-toss-blue shadow-sm' : 'text-toss-gray-500'
+                }`}
+              >
+                🗺️ 지도 보기
+              </button>
+            </div>
+          </div>
+
           {/* 검색바 */}
           <div className="px-5 pb-4">
             <div className="relative">
@@ -106,7 +131,15 @@ function App() {
           />
         )}
 
-        {/* 대분류 → 중분류 → 소분류 */}
+        {tab === 'map' ? (
+          <MapView
+            restaurants={filtered}
+            youtubers={appData.youtubers}
+            selectedYoutuber={null}
+            onSelectYoutuber={() => {}}
+            onSelectRestaurant={setSelectedRestaurant}
+          />
+        ) : (
         <div className="px-4 pt-4 pb-8 flex flex-col gap-3">
           {grouped.map(({ youtuber: yt, cuisines, totalCount }) => {
             const isYtOpen = expandedYoutuber === yt.id
@@ -210,6 +243,7 @@ function App() {
             </div>
           )}
         </div>
+        )}
 
         <div className="text-center pt-2 pb-6 px-4">
           <p className="text-[11px] text-toss-gray-400 leading-relaxed">
