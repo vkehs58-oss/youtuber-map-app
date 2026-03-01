@@ -13,6 +13,7 @@ function App() {
   const [expandedYoutuber, setExpandedYoutuber] = useState<string | null>(null)
   const [expandedCuisine, setExpandedCuisine] = useState<string | null>(null)
   const [search, setSearch] = useState('')
+  const [mapYoutuber, setMapYoutuber] = useState<string | null>(null)
 
   const q = search.trim().toLowerCase()
 
@@ -135,10 +136,10 @@ function App() {
 
         {tab === 'map' ? (
           <MapView
-            restaurants={filtered}
+            restaurants={mapYoutuber ? filtered.filter(r => r.youtuber === mapYoutuber) : []}
             youtubers={appData.youtubers}
-            selectedYoutuber={null}
-            onSelectYoutuber={() => {}}
+            selectedYoutuber={mapYoutuber}
+            onSelectYoutuber={(name) => setMapYoutuber(prev => prev === name ? null : name)}
             onSelectRestaurant={setSelectedRestaurant}
           />
         ) : (

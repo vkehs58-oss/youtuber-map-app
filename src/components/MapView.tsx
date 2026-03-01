@@ -108,11 +108,11 @@ export default function MapView({ restaurants, youtubers, selectedYoutuber, onSe
       <div className="absolute top-3 left-0 right-0 z-10 px-4">
         <div className="flex gap-2 overflow-x-auto hide-scroll pb-1">
           {youtubers.map(y => {
-            const isActive = selectedYoutuber === y.id
+            const isActive = selectedYoutuber === y.name
             return (
               <button
-                key={y.id}
-                onClick={() => onSelectYoutuber(y.id)}
+                key={y.name}
+                onClick={() => onSelectYoutuber(y.name)}
                 className={`shrink-0 px-3 py-2 rounded-xl flex items-center gap-1.5 text-[12px] font-bold transition-all shadow-md ${
                   isActive
                     ? 'text-white'
@@ -138,6 +138,16 @@ export default function MapView({ restaurants, youtubers, selectedYoutuber, onSe
       {!loaded && (
         <div className="absolute inset-0 flex items-center justify-center bg-toss-gray-100">
           <div className="text-[14px] text-toss-gray-500">지도 로딩 중...</div>
+        </div>
+      )}
+
+      {loaded && !selectedYoutuber && (
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ top: '60px' }}>
+          <div className="bg-white/90 backdrop-blur-sm rounded-2xl px-6 py-4 shadow-lg text-center">
+            <div className="text-[28px] mb-2">👆</div>
+            <div className="text-[14px] font-bold text-toss-gray-800">유튜버를 선택해주세요</div>
+            <div className="text-[12px] text-toss-gray-500 mt-1">위 칩을 눌러 맛집을 확인하세요</div>
+          </div>
         </div>
       )}
     </div>
