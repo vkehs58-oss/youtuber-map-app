@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme {
+  --spacing: 0.25rem;
+  --color-toss-blue: #3182f6;
+  --color-toss-blue-dark: #1b64da;
+  --color-toss-blue-light: #e8f3ff;
+  --color-toss-black: #191f28;
+  --color-toss-gray-50: #f9fafb;
+  --color-toss-gray-100: #f2f4f6;
+  --color-toss-gray-200: #e5e8eb;
+  --color-toss-gray-300: #d1d6db;
+  --color-toss-gray-400: #b0b8c1;
+  --color-toss-gray-500: #8b95a1;
+  --color-toss-gray-600: #6b7684;
+  --color-toss-gray-700: #4e5968;
+  --color-toss-gray-800: #333d4b;
+  --color-toss-gray-900: #191f28;
+  --color-toss-green: #00c471;
+  --color-toss-red: #f04452;
+  --color-toss-orange: #f59e0b;
+}
+
+* { -webkit-tap-highlight-color: transparent; }
+
+body {
+  font-family: 'Pretendard Variable', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  background-color: #f2f4f6;
+  color: #191f28;
+  margin: 0;
+}
+
+html, body {
+  touch-action: manipulation;
+  overscroll-behavior: none;
+  -webkit-text-size-adjust: 100%;
+}
+
+::-webkit-scrollbar { display: none; }
+body { scrollbar-width: none; }
+
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-slide { animation: fadeSlide 0.2s ease-out; }
