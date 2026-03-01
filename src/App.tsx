@@ -109,7 +109,7 @@ function App() {
                 value={search}
                 onChange={e => setSearch(e.target.value)}
                 placeholder="맛집, 지역, 메뉴 검색"
-                className="w-full h-10 pl-10 pr-9 rounded-xl bg-toss-gray-100 text-[14px] text-toss-gray-900 placeholder:text-toss-gray-400 outline-none focus:ring-2 focus:ring-toss-blue transition-shadow"
+                className="w-full h-10 pl-10 pr-9 rounded-xl bg-toss-gray-100 border border-gray-200 shadow-sm text-[14px] text-toss-gray-900 placeholder:text-toss-gray-400 outline-none focus:ring-2 focus:ring-toss-blue transition-shadow"
               />
               {search && (
                 <button onClick={() => setSearch('')} className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-toss-gray-300 flex items-center justify-center">
