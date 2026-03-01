@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState, useCallback, TouchEvent as RE } from 'react'
+import { useEffect, useRef, useState, useCallback } from 'react'
+import type { TouchEvent as RE } from 'react'
 import type { Restaurant, Youtuber } from '../types'
 
 declare global {
