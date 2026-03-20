@@ -1,5 +1,20 @@
 import type { Restaurant, Youtuber } from '../types'
 
+// 12. 음식 카테고리 이모지
+const CUISINE_EMOJI: Record<string, string> = {
+  한식: '🍚', 일식: '🍣', 양식: '🍝', 중식: '🥟',
+  분식: '🍢', 카페: '☕', 디저트: '🍰', 햄버거: '🍔', 피자: '🍕',
+  치킨: '🍗', 고기: '🥩', 라멘: '🍜', 초밥: '🍱', 국밥: '🥘',
+}
+
+function getCuisineEmoji(cuisine: string): string {
+  if (CUISINE_EMOJI[cuisine]) return CUISINE_EMOJI[cuisine]
+  for (const [key, emoji] of Object.entries(CUISINE_EMOJI)) {
+    if (cuisine.includes(key)) return emoji
+  }
+  return '🍴'
+}
+
 interface Props {
   restaurants: Restaurant[]
   youtubers: Youtuber[]
@@ -19,17 +34,18 @@ export default function RestaurantList({ restaurants, youtubers, onSelect }: Pro
           >
             <div className="flex items-start gap-3.5">
               <div
-                className="w-12 h-12 rounded-2xl flex items-center justify-center text-[18px] font-extrabold shrink-0"
-                style={{ background: yt ? `${yt.color}20` : '#F2F4F6', color: yt?.color }}
+                className="w-12 h-12 rounded-2xl flex items-center justify-center text-[22px] shrink-0"
+                style={{ background: yt ? `${yt.color}20` : '#F2F4F6' }}
               >
-                {r.name.charAt(0)}
+                {getCuisineEmoji(r.cuisine)}
               </div>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2">
                   <span className="text-[15px] font-bold text-toss-gray-900">{r.name}</span>
                   {yt && (
+                    // 8. 배지 폰트 11px
                     <span
-                      className="text-[10px] font-bold px-1.5 py-0.5 rounded-md"
+                      className="text-[11px] font-bold px-2 py-0.5 rounded-md"
                       style={{ background: `${yt.color}15`, color: yt.color }}
                     >
                       {yt.emoji} {yt.name}

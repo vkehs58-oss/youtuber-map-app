@@ -3,9 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#3182F6" />
+    <meta name="description" content="유튜버가 다녀간 맛집 104곳! 쯔양, 성시경, 풍자 등 먹방 유튜버 맛집을 지도에서 한눈에 확인하세요." />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="유튜버 맛집 지도" />
+
+    <!-- OG Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="유튜버 맛집 지도 - 유튜버가 다녀간 맛집 모음" />
+    <meta property="og:description" content="쯔양, 성시경, 풍자 등 먹방 유튜버가 다녀간 맛집 104곳을 지도에서 확인하세요!" />
+    <meta property="og:image" content="https://static.toss.im/appsintoss/23479/d2f83d8d-2a29-4b23-8151-b6274ef7b429.png" />
+    <meta property="og:url" content="https://youtuber-map-app.vercel.app" />
+
+    <!-- Icons -->
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/icon-192.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+
     <title>유튜버 맛집 지도</title>
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <!-- Kakao Maps SDK - 직접 로드 (WebView 호환, 자동 초기화) -->
+    <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=301b016cf5e55960143e982bf2676aac&libraries=clusterer"></script>
   </head>
   <body>
     <div id="root"></div>

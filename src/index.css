@@ -44,3 +44,34 @@ body { scrollbar-width: none; }
   to { opacity: 1; transform: translateY(0); }
 }
 .animate-fade-slide { animation: fadeSlide 0.2s ease-out; }
+
+/* 바텀시트 전용 - 아래에서 위로 */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-slide-up { animation: slideUp 0.25s ease-out; }
+
+/* Safe Area 패딩 */
+.pb-safe { padding-bottom: max(32px, env(safe-area-inset-bottom)); }
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, #f2f4f6 25%, #e5e8eb 50%, #f2f4f6 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+}
+
+@keyframes heartPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+.heart-pop { animation: heartPop 0.3s ease-out; }
+
+.hide-scroll::-webkit-scrollbar { display: none; }
+.hide-scroll { scrollbar-width: none; }
